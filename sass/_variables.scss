@@ -1,0 +1,68 @@
+
+
+$color-default:#ae251e;
+$color-primary:#961c1b;
+$color-secondary:#131227;
+$color-base:hsla(0, 0, 0, 0.6);
+
+$color-itachisan-opa1:hsla(var(--color-primary-h), var(--color-primary-s), var(--color-primary-l), 68%);
+$color-itachisan-opa2:hsla(var(--color-secondary-h), var(--color-secondary-s), var(--color-secondary-l), 38%);
+$color-itachisan-opa3:hsla(var(--color-itachisan-senpai2-h), var(--color-itachisan-senpai2-s), var(--color-itachisan-senpai2-l), 38%);
+
+$color-default-lighte : lighte(var(--color-default), 4.2);
+$color-default-satur : satur(var(--color-default), 0.6);
+
+$color-primary-lighte : lighte(var(--color-primary), 4.2);
+$color-primary-satur : satur(var(--color-primary), 0.6);
+
+$color-secondary-lighte : lighte(var(--color-secondary), 2.7);
+$color-secondary-satur : satur(var(--color-secondary), 1.2);
+
+$color-itachisan-senpai1 : #fb2c54;
+$color-itachisan-senpai2 : #413144;
+$color-itachisan-senpai3 : #fff7f9;
+
+:root{
+--color-base: #{$color-base};
+@include defineColorHSL(--color-default, $color-default);
+--color-default-lighte : #{$color-default-lighte};
+--color-default-satur : #{$color-default-satur};
+@include defineColorHSL(--color-primary, $color-primary);
+--color-primary-lighte : #{$color-primary-lighte};
+--color-primary-satur : #{$color-primary-satur};
+@include defineColorHSL(--color-secondary, $color-secondary);
+--color-secondary-lighte : #{$color-secondary-lighte};
+--color-secondary-satur : #{$color-secondary-satur};
+--color-itachisan-opa1 : #{$color-itachisan-opa1};
+--color-itachisan-opa2 : #{$color-itachisan-opa2};
+--color-itachisan-opa3 : #{$color-itachisan-opa3};
+@include defineColorHSL(--color-itachisan-senpai1, $color-itachisan-senpai1);
+@include defineColorHSL(--color-itachisan-senpai2, $color-itachisan-senpai2);
+@include defineColorHSL(--color-itachisan-senpai3, $color-itachisan-senpai3);
+}
+
+.dark-mode{
+    @include defineColorHSL(--color-default, $color-secondary);
+    --color-default-lighte : #{$color-secondary-satur};
+    --color-default-satur : #{$color-secondary-lighte};
+    @include defineColorHSL(--color-primary, $color-primary);
+    --color-primary-lighte : #{$color-primary-satur};
+    --color-primary-satur : #{$color-primary-lighte};
+    @include defineColorHSL(--color-secondary, $color-default);
+    --color-secondary-lighte : #{$color-default-satur};
+    --color-secondary-satur : #{$color-default-lighte};
+}
+
+@media (prefers-color-scheme: dark) {
+  :root{
+    @include defineColorHSL(--color-default, $color-secondary);
+    --color-default-lighte : #{$color-secondary-satur};
+    --color-default-satur : #{$color-secondary-lighte};
+    @include defineColorHSL(--color-primary, $color-primary);
+    --color-primary-lighte : #{$color-primary-satur};
+    --color-primary-satur : #{$color-primary-lighte};
+    @include defineColorHSL(--color-secondary, $color-default);
+    --color-secondary-lighte : #{$color-default-satur};
+    --color-secondary-satur : #{$color-default-lighte};
+  }
+}
